@@ -1,17 +1,18 @@
+# Use a lightweight Python base image
 FROM python:3.9-slim-buster
 
-# evitar buffer
-ENV PYTHONUNBUFFERED=1
+# Set the working directory in the container
+WORKDIR /app
 
-WORKDIR /
-
+# Copy the requirements file and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the rest of your application code
 COPY . .
 
-# Puerto que usa Flask-SocketIO
-EXPOSE 5000
+# Expose the port your application listens on (e.g., 80 for web apps)
+EXPOSE 80
 
-#CMD ["gunicorn", "--worker-class", "eventlet", "-w", "1", "-b", "0.0.0.0:5000", "app:app"]
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+# Command to run your application (adjust as needed for your framework)
+CMD ["python", "app.py"]
