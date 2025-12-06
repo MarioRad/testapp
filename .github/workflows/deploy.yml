@@ -20,10 +20,11 @@ jobs:
         with:
           # URL completa de tu servidor CapRover (ej: https://captain.miservidor.com)
           #server: http://testapp.capradich.mywire.org/
+          server: http://captain.capradich.mywire.org/
           # El nombre de la app tal como aparece en el panel de CapRover
-          #app: testapp
+          app: testapp
           # Usa el secreto que creaste en GitHub
-          #token: ${{ d131f040aa97680a5043d0a0894b34fab4162c69a0ca7c230402d029586ea6e0 }}
-          server: '${{ secrets.CAPROVER_SERVER }}'
-          app: '${{ secrets.APP_NAME }}'
-          token: '${{ secrets.APP_TOKEN }}'
+          token: ${{ d131f040aa97680a5043d0a0894b34fab4162c69a0ca7c230402d029586ea6e0 }}
+          #server: '${{ secrets.CAPROVER_SERVER }}'
+          #app: '${{ secrets.APP_NAME }}'
+          #token: '${{ secrets.APP_TOKEN }}'
